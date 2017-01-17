@@ -6,13 +6,20 @@ import csv
 import re
 
 def twtt1(s):
-	''' Removes all html tags and attributes. '''
+	''' Returns a new string with all html tags and attributes removed from s. '''
 	
 	return re.sub(r"<[^>]+>", "", s)
 
 def twtt2(s):
-	''' Replaces html character codes with ASCII equivalent. '''
-	return ""
+	''' Returns a new string with html character codes replaced with ASCII 
+	equivalent in s. '''
+	
+	r = re.compile('&#[3][2-9]|&#[4-9][0-9]|&#1[0-1][0-9]|&#1[2][0-7]') # detects &#
+
+	while r.search(s):
+		s = r.sub('', s)
+
+	return s
 
 def twtt3(s):
 	''' Removes  all URLs (tokens that begin with http or wwww) '''
@@ -38,6 +45,9 @@ def twtt9(s):
 
 if __name__ == '__main__':
 
-	training_csv = sys.argv[1]
-	student_num = sys.argv[2]
-	output = sys.argv[3]
+	# training_csv = sys.argv[1]
+	# student_num = sys.argv[2]
+	# output = sys.argv[3]
+
+	print(twtt2('Hi &#127 how &#128 &#33h &#30h'))
+
