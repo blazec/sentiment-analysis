@@ -10,17 +10,20 @@ def twtt1(s):
 	return re.sub(r'<[^>]+>', '', s)
 
 def twtt2(s):
-	''' Returns a new string with html character codes (&#32-&#127) replaced with ASCII 
-	equivalent in s. '''
+	''' Returns a new string with html character codes (&#32-&#127) replaced with their
+	 ASCII equivalent. '''
 	r = re.compile('&#[3][2-9]|&#[4-9][0-9]|&#1[0-1][0-9]|&#1[2][0-7]')
-	
-	while r.search(s):
-		html_code = r.group()
+	match = r.search(s)
+
+	# replace html code with ascii equivalent
+	while match:
+		html_code = match.group()
 		
 		# extract ASCII number from html code
-		ascii_code = re.search('[0-9]{2,3}', html_code).group()
+		ascii_code = int(re.search('[0-9]{2,3}', html_code).group())
 
 		s = s.replace(html_code, chr(ascii_code))
+		match = r.search(s)
 
 	return s
 
@@ -29,10 +32,11 @@ def twtt3(s):
 	return re.sub(r'http\S*\s|www.\S*\s', "", s)
 
 def twtt4(s):
-	''' Returns a new string where @ and # (twitter symbols) are removed.'''
+	''' Returns a new string where @ and # (twitter symbols) are removed from s.'''
 	return re.sub(r'@|#', '', s)
 
 def twtt5(s):
+	''' Returns a string where each sentence is its own line'''
 	return ""
 
 def twtt6(s):
