@@ -26,8 +26,12 @@ for abbrv in abbrvs:
 		for comb in abbrv_ulcomb:
 			abbrvs_regex += '[\w\s]*\s' + comb.strip().replace('.','\.') + '\s*[a-z][\w\s]*[\.\!\?]' + '|'
 
+# Regular expressions useful in get_sentences(tweet)
+question_exclam_before_small_regex = '[\w\s]*[\.\!\?]\s*[a-z][\w\s]*[\.\!\?]|'
+quote_regex = '\w*[\.\!\?]\"|'
+period_question_exclaim_regex = '\w*[\.\!\?]'
 
-def get_putative_boundaries(tweet):
+def get_sentences(tweet):
 	''' Sets boundaries for tweet after all occurences of . ? !.
 	Returns a list where each element is the extracted sentence'''
 	if not tweet:
@@ -42,64 +46,22 @@ def get_putative_boundaries(tweet):
 	# - Disqualify a boundary with a ? or ! if It is followed by a lowercase letter (or a known name)
 	# - Regard other putative sentence boundaries as sentence boundaries
  	#
-	r = re.compile('(' + abbrvs_regex + abbrvs_pn_regex + '[\w\s]*[\.\!\?]\s*[a-z][\w\s]*[\.\!\?]|\w*[\.\!\?]\"|\w*[\.\!\?])')
+
+
+	r = re.compile('(' + abbrvs_regex + abbrvs_pn_regex + question_exclam_before_small_regex \
+		+ quote_regex + period_question_exclaim_regex + ')')
 	
 
 	# use split with capture group
+	tweet_split = r.split(tweet)
 	# ex: r.split("Ahhh... back to the real world.")
 	# 	  returns ['', 'Ahhh.', '', '.', '', '.' ' back to the real ', 'world.']
-	# so want to join every first and second element
-	tweet_split = r.split(tweet)
-	updated_tweet_split = []
-	i = 1
-	print "split", tweet_split
-	while i < len(tweet_split) - 1:
-		joined_str = tweet_split[i-1] + tweet_split[i]
-		# handle repeated . ? !
-		if joined_str in ('.', '?', '!') and len(updated_tweet_split) > 0:
-			updated_tweet_split[-1] = updated_tweet_split[-1] + joined_str
-		else:
-			updated_tweet_split.append(joined_str)
+	# So we have to format even further
 
-		i += 2
-
-	return updated_tweet_split
-
-
-# def adjust_boundaries_for_quotation_marks(tweet_spilit):
-# 	''' Adjusts the boundaries in tweet_split so that quotation marks that
-# 	follow . ? ! are joined to the previous sentence.
-# 	ex. tweet_split = ['"Hi.', '" he said.', 'Excuse me?']
-# 	'''
-# 	if len(tweet_split) < 2:
-# 		return tweet_split
-
-# 	i = 1
-# 	# Compare previous and following sentence
-# 	while i < len(tweet_split) - 1:
-# 		if tweet_split[i-1][-1] in ('.', '?', '!') \
-# 		and  tweet_split[i][0] == '"':
-# 			tweet_split[i-1] = tweet_split[i-1] + '"'
-# 			tweet_split[i] = tweet_split[i][1:]
-
-# 	return tweet_split
-
-# def disqualify_period_boundaries_for_abbrvs(tweet_split):
-# 	''' Disqualifies period boundary if:
-# 		- it is preceded by a known abbreviation that does not normally 
-# 		occur finally
-# 		- it is preceded by a known abbreviation and not followed by an
-# 		uppercase word
-# 	'''
-# 	if len(tweet_split) < 2:
-# 		return tweet_split
-
-# 	i = 1
-# 	while i < len(tweet_split) - 1:
-# 		pass
-
-
-# 	updated_tweet_split = []
+	# Replace space (if it is the first character) with line break '\n'
+	tweet_split = map(lambda elem: '\n' + elem[1:] if len(elem) > 0 and elem[0] == ' ' else elem, tweet_split)
+	
+	return ''.join(tweet_split)
 
 
 if __name__ == '__main__':
@@ -111,11 +73,11 @@ if __name__ == '__main__':
 	'"Hi," she remarked, "how are you?" "Good." I replied.',
 	'Hi how are you MR. in the farm. Im good',
 	'I went to Ala. and I liked it. I went to Ala. Yeah.',
-	'Fish, dogs, pigs, etc. But I am Mr. Anderson Jr. the third. My last name is not Jr. Yes.']
+	'Fish, dogs, pigs, etc. in the car. But I am Mr. Anderson Jr. the third. My last name is not Jr. Yes.']
 
 	# sentences = ['Fish, dogs, pigs, etc. But I am Mr. Anderson Jr. the third. My last name is not Jr. yes.']
 
 	for sent in sentences:
-		print get_putative_boundaries(sent)
+		print get_sentences(sent)
 
 
