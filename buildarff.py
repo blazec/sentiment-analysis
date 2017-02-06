@@ -40,6 +40,10 @@ import re
 # WP wh-pronoun: who, what
 # WP$ Possessive: wh-pronoun whose
 # WRB: wh-adverb 
+non_punctuation_tags = [r'\/CC', r'\/CD', r'\/DT', r'\/EX', r'\/FW', r'\/IN', r'\/JJR', r'\/JJS', r'\/JJ', 
+						r'\/LS', r'\/MD', r'\/NNPS', r'\/NNS', r'\/NNP', r'\/NN', r'\/PDT', r'\/POS', r'\/PRP\$', 
+						r'\/PRP', r'\/RBR', r'\/RBS', r'\/RB', r'\/RP', r'\/SYM', r'\/TO', r'\/UH', r'\/VBD',
+						r'\/VBG', r'\/VBN', r'\/VBP', r'\/VBZ', r'\/VB', r'\/WDT', r'\/WP\$', r'\/WP', r'\/WRB' ]
 
 punctuation_tags = [r'\/#', r'\/$', r'\/\.', r'\/,', r'\/:', r'\/(', r'\/)', r'\/"', r"\/'", ]
 
@@ -56,17 +60,18 @@ with open('Slang') as f:
 	slangs = [s.rstrip() for s in f.readlines()]
 	slang_regex = '|'.join(slangs)
 
+non_punctuation_regex = '|'.join(non_punctuation_tags)
+all_tokens_regex = '|'.join(non_punctuation_tags + punctuation_tags)
 
 def get_polarity(polarity_tag):
 	''' Returns polarity of tagged_tweet. polarity_tag format: <A=4>'''
-	return int(re.search('[1-4]').group())
+	return int(re.search('[0-4]', polarity_tag).group())
 
 def get_tagged_tweet():
 	return
 
 def feat1(tagged_tweet):
 	''' Returns count of first-person pronouns in tagged_tweet'''
-	
 	return 0
 
 def feat2(tagged_tweet):
@@ -74,7 +79,7 @@ def feat2(tagged_tweet):
 	return 0
 
 def feat3(tagged_tweet):
-		''' Returns count of third-person pronouns in tagged_tweet'''
+	''' Returns count of third-person pronouns in tagged_tweet'''
 	return 0
 
 def feat4(tagged_tweet):
@@ -105,7 +110,7 @@ def feat9(tagged_tweet):
 
 def feat10(tagged_tweet):
 	''' Returns count of parentheses in tagged_tweet'''
-	return len(re.findall(r'\/(|\/)', tagged_tweet))
+	return len(re.findall(r'\/(.*\/)', tagged_tweet))
 
 def feat11(tagged_tweet):
 	''' Returns count of ellipses in tagged_tweet'''
@@ -123,8 +128,8 @@ def feat13(tagged_tweet):
 
 def feat14(tagged_tweet):
 	''' Returns count of adverbs in tagged_tweet'''
-	# tags = 'WRB', 'RB', 'RBR', 'RBS'
-	return len(re.findall(r'\/WRB|\/RB|\/RBR|\/RBS', tagged_tweet))
+	# tags = 'RB', 'RBR', 'RBS'
+	return len(re.findall(r'\/RB|\/RBR|\/RBS', tagged_tweet))
 
 def feat15(tagged_tweet):
 	''' Returns count of wh-words in tagged_tweet'''
@@ -136,20 +141,25 @@ def feat16(tagged_tweet):
 	return len(re.findall(slang_regex, tagged_tweet))
 
 def feat17(tagged_tweet):
-	''' Returns count of uppercase words in tagged_tweet'''
-	return len(re.findall(r'[^\/][A-Z]{2,}', tagged_tweet))
+	''' Returns count of uppercase words at least 2 letters long in tagged_tweet'''
+	return len(re.findall(r'[A-Z]{2,}', tagged_tweet)) - len(re.findall(r'[/][A-Z]{2,}', tagged_tweet))
 
 def feat18(tagged_tweet):
 	''' Returns average length of sentences in tagged_tweet'''
-	return len(filter(None, re.split(r'\n', tagged_tweet)))
+	tweet_split = filter(None, re.split(r'\n', tagged_tweet))
+	return float(sum(map(lambda sentence: len(re.findall(all_tokens_regex, sentence)), tweet_split))) / float(len(tweet_split)) 
 
 def feat19(tagged_tweet):
-	''' Returns average length of non-pronunciation tokens in tagged_tweet'''
-	return 0
+	''' Returns average length of non-punctuation tokens in tagged_tweet'''
+	token_split = filter(lambda token: token and not token.isspace(), re.split(all_tokens_regex, tagged_tweet))
+	return float(sum(map(lambda token: len(''.join(token.split())), token_split))) / float(len(token_split))
+	# return len(re.findall(non_punctuation_regex, tagged_tweet))
 
 def feat20(tagged_tweet):
 	''' Returns number of sentences in tagged_tweet'''
-	return 0
+	# print re.findall(r'\n', tagged_tweet)
+	print re.split(r'(\n)', tagged_tweet)
+	return len(filter(None, re.findall(r'\n', tagged_tweet)))
 
 if __name__ == '__main__':
 	# print first_person_pronouns
@@ -157,18 +167,20 @@ if __name__ == '__main__':
 	# print third_person_pronouns
 	# print data
 
-	r = re.compile('(<A=[0-4]>)')
+	r = re.compile(r'(<A=[0-4]>\n)')
 	with open('test-test.twt') as inpt:
 		# inpt looks like:
 		# <A=0>\n
 		# stellargirl/NN I/PRP loooooooovvvvvveee/NN\n
 		# <A=1>\n
 		data = filter(None, r.split(inpt.read()))
-
+		# print data
 		for d in data:
 			if r.search(d):
 				polarity = get_polarity(d) # current polarity
 			else:
+				print d
+				print feat19(d)
 
 
 
