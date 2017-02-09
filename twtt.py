@@ -11,63 +11,55 @@ tagger = NLPlib.NLPlib()
 
 def twtt1(s):
 	''' Returns a new string with all html tags and attributes removed from s. '''
-	try:
-		return re.sub(r'<[^>]+>', '', s)
-	except Exception:
-		print 'Error: twtt1'
-		return s
+	return re.sub(r'<[^>]+>', '', s)
+
 
 def twtt2(s):
 	''' Returns a new string with html character codes (&#32-&#127) replaced with their
 	 ASCII equivalent. '''
 	ascii_codes = {'quot': 34, 'amp': 38, 'lt': 60, 'gt': 62}
-	try:
-		r = re.compile('&#[3][2-9];|&#[4-9][0-9];|&#1[0-1][0-9];|&#1[2][0-7];|&amp;|&quot;|&lt;|&gt;')
+	r = re.compile('&#[3][2-9];|&#[4-9][0-9];|&#1[0-1][0-9];|&#1[2][0-7];|&amp;|&quot;|&lt;|&gt;')
+	match = r.search(s)
+
+	# replace html code with ascii equivalent
+	while match:
+		html_code = match.group()
+		
+		# extract ASCII number from html code
+		quot_amp_lt_gt = re.search('amp|quot|lt|gt', html_code)
+		if quot_amp_lt_gt:
+			ascii_code = ascii_codes[quot_amp_lt_gt.group()]
+		else:
+			ascii_code = int(re.search('[0-9]{2,3}', html_code).group())
+
+		s = s.replace(html_code, chr(ascii_code))
 		match = r.search(s)
 
-		# replace html code with ascii equivalent
-		while match:
-			html_code = match.group()
-			
-			# extract ASCII number from html code
-			quot_amp_lt_gt = re.search('amp|quot|lt|gt', html_code)
-			if quot_amp_lt_gt:
-				ascii_code = ascii_codes[quot_amp_lt_gt.group()]
-			else:
-				ascii_code = int(re.search('[0-9]{2,3}', html_code).group())
+	return s
 
-			s = s.replace(html_code, chr(ascii_code))
-			match = r.search(s)
-
-		return s
-	except Exception:
-		print 'Error: twtt2'
-		return s
 
 def twtt3(s):
 	''' Removes  all URLs (tokens that begin with http or wwww) '''
-	try:
-		# some parts of url regex from http://stackoverflow.com/questions/3809401/what-is-a-good-regular-expression-to-match-a-url
-		return re.sub(r'(http:\/\/|https:\/\/)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)', "", s)
-	except Exception:
-		print 'Error: twtt3'
-		return s
+	# The commented url regex below might be useful.
+	# some parts of that url regex from http://stackoverflow.com/questions/3809401/what-is-a-good-regular-expression-to-match-a-url
+	#return re.sub(r'(http:\/\/|https:\/\/)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)', "", s)
+	
+	# url regex from http://daringfireball.net/2010/07/improved_regex_for_matching_urls
+	return re.sub(r'(?i)\b((?:[a-z][\w-]+:(?:/{1,3}|[a-z0-9%])|www\d{0,3}[.]|[a-z0-9.\-]+[.][a-z]{2,4}/)(?:[^\s()<>]+|\(([^\s()<>]+|(\([^\s()<>]+\)))*\))+(?:\(([^\s()<>]+|(\([^\s()<>]+\)))*\)|[^\s`!()\[\]{};:\'".,<>?]))', '', s)
 
 def twtt4(s):
 	''' Returns a new string where @ and # (twitter symbols) are removed from s.'''
-	try:
-		return re.sub(r'@|#', '', s)
-	except Exception:
-		print 'Error: twtt4'
-		return s
+	return re.sub(r'@[a-zA-Z0-9]*|#[a-zA-Z0-9]', '', s)
 
 def twtt5(s):
 	''' Returns a string where each sentence is its own line'''
-	try:
-		return sentence_separator.get_sentences(s)
-	except Exception:
-		print 'Error: twtt5'
-		return s
+	# try:
+	# 	return sentence_separator.get_sentences(s)
+	# except Exception:
+	# 	print 'Error: twtt5'
+	# 	print 's:', s
+	# 	# return s
+	return sentence_separator.get_sentences(s)
 
 def twtt6(s):
 	return
@@ -75,39 +67,31 @@ def twtt6(s):
 def twtt7(s):
 	''' Returns a new sting where punctuations and clitics are separated by spaces.
 	e.g. don't -> do n't '''
-	try:
-		return token_separator.get_tokens(s)
-	except Exception:
-		print 'Error: twtt7'
-		return s
+	return token_separator.get_tokens(s)
+
 
 def twtt8(s):
 	''' Precondition: s is a string where each sentence is separated by a new line. 
 	Returns a new string where each token is tagged. The tag will appear beside next to
 	a slash next to the token.'''
-	try:
-		r = re.compile('(\s+)')
-		tokens = r.split(s)
-		
-		# At this point tokens looks like this ["Hi", " ", ".", "\n", "I" " " "am"]
-		# The tagger will tag the spaces and new lines. We want to ignore the tags for these
-		# space characters later on
-		tags = tagger.tag(tokens)
+	r = re.compile('(\s+)')
+	tokens = filter(None, r.split(s))
+	
+	# At this point tokens looks like this ["Hi", " ", ".", "\n", "I" " " "am"]
+	# The tagger will tag the spaces and new lines. We want to ignore the tags for these
+	# space characters later on
+	tags = tagger.tag(tokens)
 
-		# Now we want to concatenate the tags to the tokens, but not to the spaces.
-		# Tags and tokens should be of equal length because each tag corresponds to one token
-		for i in range(len(tokens)):
-			token = tokens[i]
-			if not r.search(token):
-				tokens[i] = token + '/' + tags[i]
-			elif re.search(' +', token):
-				# replace multiple whitespaces with single space
-				tokens[i] = ' '
-
-		return ''.join(tokens)
-	except Exception:
-		print 'Error: twtt8'
-		return s
+	# Now we want to concatenate the tags to the tokens, but not to the spaces.
+	# Tags and tokens should be of equal length because each tag corresponds to one token
+	for i in range(len(tokens)):
+		token = tokens[i]
+		# if 'lebro' in token or 'awesome' in token:
+		# 	print tokens
+		if not r.search(token):
+			tokens[i] = token + '/' + tags[i]
+			
+	return ''.join(tokens)
 
 def twtt9(s, polarity):
 	''' Precondition: s is a string where each token is tagged and separated by a space and
@@ -116,6 +100,67 @@ def twtt9(s, polarity):
 	'''
 	pol = '<A=' + str(polarity) + '>'
 	return pol + '\n' + s
+
+def write_tweet(f, tweet, polarity):
+
+	try:
+		t1 = twtt1(tweet)
+	except Exception:
+		print 'Error: twtt1', i
+		print tweet
+		return
+
+	try:
+		t2 = twtt2(t1)
+	except Exception:
+		print 'Error: twtt2', i
+		print tweet
+		return
+
+	try:
+		t3 = twtt3(t2)
+	except Exception:
+		print 'Error: twtt3', i
+		print tweet
+		return
+
+	try:
+		t4 = twtt4(t3)
+	except Exception:
+		print 'Error: twtt4', i
+		print tweet
+		return
+
+	try:
+		t5 = twtt5(t4)
+	except Exception:
+		print 'Error: twtt5', i
+		print tweet
+		return
+
+	try:
+		t7 = twtt7(t5)
+	except Exception:
+		print 'Error: twtt7', i
+		print tweet
+		return
+
+	try:
+		t8 = twtt8(t7)
+	except Exception:
+		print 'Error: twtt8', i
+		print tweet
+		return
+
+	try:
+		t9 = twtt9(t8, polarity)
+	except Exception:
+		print 'Error: twtt9', i
+		print tweet
+		return
+
+	output.write(t9 + '\n')
+
 
 if __name__ == '__main__':
 
@@ -166,12 +211,10 @@ if __name__ == '__main__':
 
 					tweet = row[QUERY_INDEX]
 					polarity = row[POLARITY_INDEX]
-					output.write(twtt9(twtt8(twtt7(twtt5(twtt4(twtt3(twtt2(twtt1(tweet))))))), polarity) + '\n')
-
+					write_tweet(output, tweet, polarity)
+		
 					j += 1
 				i += 1
-
-
 
 
 
@@ -185,7 +228,11 @@ if __name__ == '__main__':
 	# 'Hi how are you MR. in the farm. Im good',
 	# 'I went to Ala. and I liked it. I went to Ala. Yeah.',
 	# 'Fish, dogs, pigs, etc. in the car. But I am Mr. Anderson Jr. the third. My last name is not Jr. Yes.',
-	# "This tweet's the best tweet!! Everybody says so. Don't you think?"]
+	# "This tweet's the best tweet!!\nEverybody says so.\nDon't you think?"]
+
+	# for tweet in tweets:
+	# 	print twtt8(twtt7(tweet))
+	# 	print '\n'
 
 	# for tweet in tweets:
 	# 	print twtt5(tweet)
