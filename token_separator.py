@@ -40,13 +40,13 @@ def separate_clitics(s):
 
 def separate_punctuations(s):
 	tokens = r_punc.split(s)
-	print tokens
+	
 	# At this point tokens looks something like this ['', "This tweet is the best twee", "t!!", '']
 	# Have to format even further
 	# Add space before and after punctuation, except if punctuation is the beggining quote " or '
 	tokens = map(lambda token: token[0] + ' ' + token[1:] + ' ' if len(token) > 0 and r_punc.search(token) and not r2_punc.search(token[0]) else \
 		token[0] + " " + token[1:] if len(token) > 0 and token[0] in punctuations_start else token, tokens)
-	print tokens
+	
 	#print re.sub('', re.sub(r' +', ' ', ''.join(tokens)))
 
 	return re.sub(r' +', ' ', ''.join(tokens))

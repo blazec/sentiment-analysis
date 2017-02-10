@@ -64,7 +64,8 @@ with open('Slang') as f:
 	slangs = filter(None, [s.rstrip() for s in f.readlines()])
 	slang_regex = '\s' + '(' + '|'.join(slangs) + ')' + r'/'
 
-non_punctuation_regex = '|'.join(non_punctuation_tags)
+# non_punctuation_regex = '|'.join(non_punctuation_tags)
+non_punctuation_regex = '|'.join(['[A-Za-z]*' + npt for npt in non_punctuation_tags])
 all_tokens_regex = '|'.join(non_punctuation_tags + punctuation_tags)
 
 # future tense regexes
@@ -108,15 +109,15 @@ def feat6(tagged_tweet):
 
 def feat7(tagged_tweet):
 	''' Returns count of commas in tagged_tweet'''
-	return len(re.findall(r'\,', tagged_tweet))
+	return len(re.findall(r'/,', tagged_tweet))
 
 def feat8(tagged_tweet):
 	''' Returns count of colons and semicolons in tagged_tweet'''
-	return len(re.findall(r'\:|\;', tagged_tweet))
+	return len(re.findall(r':/:|;/:', tagged_tweet))
 
 def feat9(tagged_tweet):
 	''' Returns count of dashes in tagged_tweet'''
-	return len(re.findall(r'\-', tagged_tweet))
+	return len(re.findall(r'-', tagged_tweet))
 
 def feat10(tagged_tweet):
 	''' Returns count of parentheses in tagged_tweet'''
@@ -148,28 +149,37 @@ def feat15(tagged_tweet):
 
 def feat16(tagged_tweet):
 	''' Returns count of modern slang acronyms in tagged_tweet'''
-	print re.findall(slang_regex, tagged_tweet)
-	return len(re.findall(slang_regex, tagged_tweet))
+	return len(re.findall(slang_regex, tagged_tweet, re.IGNORECASE))
 
 def feat17(tagged_tweet):
 	''' Returns count of uppercase words at least 2 letters long in tagged_tweet'''
-	return len(re.findall(r'[A-Z]{2,}', tagged_tweet)) - len(re.findall(r'[/][A-Z]{2,}', tagged_tweet))
+	return len(re.findall(r'\s[A-Z]{2,}[/]|^[A-Z]{2,}[/]', tagged_tweet))
 
 def feat18(tagged_tweet):
 	''' Returns average length of sentences in tagged_tweet'''
 	tweet_split = filter(None, re.split(r'\n', tagged_tweet))
-	return float(sum(map(lambda sentence: len(re.findall(all_tokens_regex, sentence)), tweet_split))) / float(len(tweet_split)) 
+	if len(tweet_split) > 0:
+		return float(sum(map(lambda sentence: len(re.findall(all_tokens_regex, sentence)), tweet_split))) / float(len(tweet_split)) 
+	return 0
 
 def feat19(tagged_tweet):
 	''' Returns average length of non-punctuation tokens in tagged_tweet'''
-	token_split = filter(lambda token: token and not token.isspace(), re.split(all_tokens_regex, tagged_tweet))
-	return float(sum(map(lambda token: len(''.join(token.split())), token_split))) / float(len(token_split))
-	# return len(re.findall(non_punctuation_regex, tagged_tweet))
+	# Commented out old code for reference
+	# token_split = filter(lambda token: token and not token.isspace(), re.split(non_punctuation_regex, tagged_tweet))
+	# token_split = filter(lambda token: token and not token.isspace(), re.split(non_punctuation_regex, tagged_tweet))
+	# return float(sum(map(lambda token: len(''.join(token.split())), token_split))) / float(len(token_split))
+	tokens = re.findall(non_punctuation_regex, d)
+	lengths = map(lambda token: len(token) - len(re.search('/[A-Z]*', token).group() if re.search('/[A-Z]*', token) else len(token)), tokens)
+	if len(tokens) > 0:
+		return float(sum(lengths)) / float(len(tokens))
+	return 0
 
 def feat20(tagged_tweet):
 	''' Returns number of sentences in tagged_tweet'''
 	# print re.findall(r'\n', tagged_tweet)
-	return len(filter(None, re.findall(r'\n', tagged_tweet)))
+	if not tagged_tweet.isspace():
+		return len(filter(None, re.findall(r'\n', tagged_tweet)))
+	return 0
 
 def write_data(tagged_tweet, polarity, arff_file):
 
@@ -293,9 +303,40 @@ def write_data(tagged_tweet, polarity, arff_file):
 		print 'Error feat20'
 		f20 = 0
 
-	arff_file.write(','.join(map(lambda feat: str(feat), [f1, f2, f3, f4, f5, f6, f7, f8, f9, f10,
-								f11, f12, f13, f14, f15, f16, f17, f18, f19, f20, polarity])) + '\n')
+	arff_file.write('\n' + ','.join(map(lambda feat: str(feat), [f1, f2, f3, f4, f5, f6, f7, f8, f9, f10,
+								f11, f12, f13, f14, f15, f16, f17, f18, f19, f20, polarity])))
 
+
+def write_header(f):
+	attributes = ['countfirstpersonpronouns',
+					'countsecondpersonpronouns',
+					'countthirdpersonpronouns',
+					'countcoordinatingconjunctions',
+					'countpasttenseverbs',
+					'countfuturetenseverbs',
+					'countcommas',
+					'countcolonssemicolons',
+					'countdashes',
+					'countparentheses',
+					'countellipses',
+					'countcommonnouns',
+					'countpropernouns',
+					'countadverbs',
+					'countwhwords',
+					'countslangacronyms',
+					'countuppercase',
+					'averagelengthsentences',
+					'averagelengthtokens',
+					'numbersentences']
+	f.write('% 1. Title: Tweets Sentiment Analysis\n')
+	f.write('@RELATION tweetfeatures\n\n')
+
+	for attr in attributes:
+		f.write('@ATTRIBUTE ' + attr + ' NUMERIC\n')
+	f.write('@ATTRIBUTE class {0,4}\n\n')
+
+def write_data_title(f):
+	f.write('@DATA')
 
 # Test function
 def write_f(num, tagged_tweet, output):
@@ -305,14 +346,9 @@ def write_f(num, tagged_tweet, output):
 	output.write(str(f[num-1](tagged_tweet)) + '\n')
 
 if __name__ == '__main__':
-	# print first_person_pronouns
-	# print second_person_pronouns
-	# print third_person_pronouns
-	# print data
+
 	input_file = sys.argv[1]
 	output_file = sys.argv[2]
-	# input_file = 'test-test.twt'
-	# output_file = 'test.arff'
 
 	r = re.compile(r'(<A=[0-4]>\n)')
 	with open(input_file) as inpt:
@@ -320,27 +356,18 @@ if __name__ == '__main__':
 		# <A=0>\n
 		# stellargirl/NN I/PRP loooooooovvvvvveee/NN\n
 		# <A=1>\n
+
 		data = filter(None, r.split(inpt.read()))
 		with open(output_file, 'w') as output:
-			# print data
-			i = 1
+			write_header(output)
+			write_data_title(output)
 			for d in data:
 				if r.search(d):
 					polarity = get_polarity(d) # current polarity
-				else:
-					if i == 1:
-						print third_regex
-						print re.findall(third_regex, d)
-					output.write('Tweet ' + str(i) + '\n')
-					output.write(d)
-					write_f(10, d, output)
-					# write_data(d, polarity, output)
-					output.write('\n')
-					i += 1
-
-	# training_csv_file = sys.argv[1]
-	# output_file = sys.argv[2]
-
-	# with open(output_file, 'w') as arff:
-	# 	# Write the arff header
-	# 	arff.write('@relation twit_classification\n\n')
+				else:						
+					# Commented out testing code
+					# output.write('Tweet ' + str(i) + '\n')
+					# output.write(d)
+					# write_f(11, d, output)
+					# output.write('\n')
+					write_data(d, polarity, output)

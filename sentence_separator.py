@@ -10,7 +10,7 @@ with open(ABBRVS_PN_FILE) as f:
     abbrvs_pn = f.readlines()
 abbrvs_pn_regex = ''
 for abbrv in abbrvs_pn:
-	# all upper and lower case combos for the abbrv
+	# all upper and lower case combos for the abbrv. Done manually and not with re.IGNORECASE because case matters in some cases
 	abbrv_ulcomb = map(''.join, itertools.product(*zip(abbrv.upper(), abbrv.lower())))
 	for comb in abbrv_ulcomb:
 		abbrvs_pn_regex += '[\w\s]*\s' + comb.strip().replace('.', '\.') + '\s[\w\s]+\.' + '|'
@@ -22,6 +22,7 @@ with open(ABBRVS_FILE) as f:
 abbrvs_regex = ''
 for abbrv in abbrvs:
 	if abbrv not in abbrvs_pn:
+		# all upper and lower case combos for the abbrv. Done manually and not with re.IGNORECASE because case matters in some cases
 		abbrv_ulcomb = map(''.join, itertools.product(*zip(abbrv.upper(), abbrv.lower())))
 		for comb in abbrv_ulcomb:
 			abbrvs_regex += '[\w\s]*\s' + comb.strip().replace('.','\.') + '\s*[a-z][\w\s]*[\.\!\?]' + '|'

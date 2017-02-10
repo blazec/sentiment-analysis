@@ -218,6 +218,10 @@ if __name__ == '__main__':
 
 
 
+
+	# sent = "Today's episode of &quot;House&quot; (Episode, Simple Explanation) was so heartbreaking. "
+	# print twtt8(twtt7(twtt5(twtt4(twtt3(twtt2(twtt1(sent)))))))
+
 	# print(twtt2('Hi &#127 how &#128 &#33h &#30h'))
 	# tweets = ["@stellargirl I loooooooovvvvvveee my Kindle2. Not that the DX is cool, but the 2 is fantastic in its own right.",
 	# "Fuck this economy. I hate aig and their non loan given asses.",
