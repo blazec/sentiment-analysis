@@ -356,7 +356,7 @@ if __name__ == '__main__':
 		# <A=0>\n
 		# stellargirl/NN I/PRP loooooooovvvvvveee/NN\n
 		# <A=1>\n
-
+		
 		data = filter(None, r.split(inpt.read()))
 		with open(output_file, 'w') as output:
 			write_header(output)
