@@ -198,7 +198,7 @@ if __name__ == '__main__':
 		ranges = range(i)
 
 	with open(training_csv_file) as inpt:
-
+		
 		with open(output, 'w') as output:
 			print "Writing training file"
 			reader = csv.reader(inpt)
