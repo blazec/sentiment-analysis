@@ -341,7 +341,7 @@ def write_data_title(f):
 # Test function
 def write_f(num, tagged_tweet, output):
 	f = [feat1, feat2, feat3, feat4, feat5, feat6, feat7, feat8, feat9, feat10,
-		feat11, feat12, feat13, feat14, feat15, feat16, feat17, feat18, feat19, feat20,]
+		feat11, feat12, feat13, feat14, feat15, feat16, feat17, feat18, feat19, feat20]
 
 	output.write(str(f[num-1](tagged_tweet)) + '\n')
 
