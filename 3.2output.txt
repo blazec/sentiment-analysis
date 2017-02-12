@@ -1,0 +1,279 @@
+n = 500
+classifier: Decision Tree
+
+=== Error on test data ===
+
+Correctly Classified Instances         185               51.676  %
+Incorrectly Classified Instances       173               48.324  %
+Kappa statistic                          0.0339
+Mean absolute error                      0.4913
+Root mean squared error                  0.6287
+Relative absolute error                 98.2642 %
+Root relative squared error            125.7351 %
+Total Number of Instances              358     
+
+n = 1000
+classifier: Decision Tree
+
+=== Error on test data ===
+
+Correctly Classified Instances         193               53.9106 %
+Incorrectly Classified Instances       165               46.0894 %
+Kappa statistic                          0.0792
+Mean absolute error                      0.4741
+Root mean squared error                  0.5959
+Relative absolute error                 94.8279 %
+Root relative squared error            119.1843 %
+Total Number of Instances              358     
+
+n = 1500
+classifier: Naive Bayes
+
+=== Error on test data ===
+
+Correctly Classified Instances         191               53.352  %
+Incorrectly Classified Instances       167               46.648  %
+Kappa statistic                          0.0676
+Mean absolute error                      0.489 
+Root mean squared error                  0.5466
+Relative absolute error                 97.793  %
+Root relative squared error            109.3128 %
+Total Number of Instances              358 
+
+n = 2000
+classifier: Decision Tree
+
+=== Error on test data ===
+
+Correctly Classified Instances         191               53.352  %
+Incorrectly Classified Instances       167               46.648  %
+Kappa statistic                          0.0665
+Mean absolute error                      0.4733
+Root mean squared error                  0.5913
+Relative absolute error                 94.6696 %
+Root relative squared error            118.2665 %
+Total Number of Instances              358     
+
+n = 2500
+classifier: Decision Tree
+
+=== Error on test data ===
+
+Correctly Classified Instances         197               55.0279 %
+Incorrectly Classified Instances       161               44.9721 %
+Kappa statistic                          0.0989
+Mean absolute error                      0.4766
+Root mean squared error                  0.5972
+Relative absolute error                 95.3152 %
+Root relative squared error            119.438  %
+Total Number of Instances              358 
+
+n = 3000
+classifier: Naive Bayes
+
+=== Error on test data ===
+
+Correctly Classified Instances         195               54.4693 %
+Incorrectly Classified Instances       163               45.5307 %
+Kappa statistic                          0.0885
+Mean absolute error                      0.4854
+Root mean squared error                  0.5421
+Relative absolute error                 97.0817 %
+Root relative squared error            108.4182 %
+Total Number of Instances              358    
+
+n = 3500
+classifier: SVM
+
+=== Error on test data ===
+
+Correctly Classified Instances         187               52.2346 %
+Incorrectly Classified Instances       171               47.7654 %
+Kappa statistic                          0.0416
+Mean absolute error                      0.4777
+Root mean squared error                  0.6911
+Relative absolute error                 95.5307 %
+Root relative squared error            138.225  %
+Total Number of Instances              358  
+
+n = 4000
+classifier: SVM
+
+=== Error on test data ===
+
+Correctly Classified Instances         192               53.6313 %
+Incorrectly Classified Instances       166               46.3687 %
+Kappa statistic                          0.0701
+Mean absolute error                      0.4637
+Root mean squared error                  0.6809
+Relative absolute error                 92.7374 %
+Root relative squared error            136.1892 %
+Total Number of Instances              358   
+
+n = 4500
+classifier: Naive Bayes
+
+=== Error on test data ===
+
+Correctly Classified Instances         196               54.7486 %
+Incorrectly Classified Instances       162               45.2514 %
+Kappa statistic                          0.0922
+Mean absolute error                      0.4876
+Root mean squared error                  0.5504
+Relative absolute error                 97.5184 %
+Root relative squared error            110.0776 %
+Total Number of Instances              358 
+
+n = 5000
+classifier: Naive Bayes
+
+=== Error on test data ===
+
+Correctly Classified Instances         189               52.7933 %
+Incorrectly Classified Instances       169               47.2067 %
+Kappa statistic                          0.0541
+Mean absolute error                      0.4827
+Root mean squared error                  0.5405
+Relative absolute error                 96.5353 %
+Root relative squared error            108.0944 %
+Total Number of Instances              358     
+
+n = 5500
+classifier: Naive Bayes
+
+=== Error on test data ===
+
+Correctly Classified Instances         189               52.7933 %
+Incorrectly Classified Instances       169               47.2067 %
+Kappa statistic                          0.0523
+Mean absolute error                      0.491 
+Root mean squared error                  0.5506
+Relative absolute error                 98.1999 %
+Root relative squared error            110.11   %
+Total Number of Instances              358     
+
+n = 6000
+classifier: SVM
+
+=== Error on test data ===
+
+Correctly Classified Instances         190               53.0726 %
+Incorrectly Classified Instances       168               46.9274 %
+Kappa statistic                          0.0596
+Mean absolute error                      0.4693
+Root mean squared error                  0.685 
+Relative absolute error                 93.8547 %
+Root relative squared error            137.0071 %
+Total Number of Instances              358     
+
+n = 6500
+classifier: SVM
+
+=== Error on test data ===
+
+Correctly Classified Instances         187               52.2346 %
+Incorrectly Classified Instances       171               47.7654 %
+Kappa statistic                          0.0431
+Mean absolute error                      0.4777
+Root mean squared error                  0.6911
+Relative absolute error                 95.5307 %
+Root relative squared error            138.225  %
+Total Number of Instances              358   
+
+n = 7000
+classifier: Decision Tree
+
+=== Error on test data ===
+
+Correctly Classified Instances         210               58.6592 %
+Incorrectly Classified Instances       148               41.3408 %
+Kappa statistic                          0.172 
+Mean absolute error                      0.4525
+Root mean squared error                  0.5708
+Relative absolute error                 90.5083 %
+Root relative squared error            114.1506 %
+Total Number of Instances              358   
+
+n = 7500
+classifier: Decision Tree
+
+=== Error on test data ===
+
+Correctly Classified Instances         192               53.6313 %
+Incorrectly Classified Instances       166               46.3687 %
+Kappa statistic                          0.0718
+Mean absolute error                      0.4777
+Root mean squared error                  0.584 
+Relative absolute error                 95.5407 %
+Root relative squared error            116.8017 %
+Total Number of Instances              358 
+
+n = 8000
+classifier: Decision Tree
+
+=== Error on test data ===
+
+Correctly Classified Instances         197               55.0279 %
+Incorrectly Classified Instances       161               44.9721 %
+Kappa statistic                          0.1002
+Mean absolute error                      0.4645
+Root mean squared error                  0.5735
+Relative absolute error                 92.906  %
+Root relative squared error            114.6993 %
+Total Number of Instances              358  
+
+n = 8500
+classifier: SVM
+
+=== Error on test data ===
+
+Correctly Classified Instances         189               52.7933 %
+Incorrectly Classified Instances       169               47.2067 %
+Kappa statistic                          0.0546
+Mean absolute error                      0.4721
+Root mean squared error                  0.6871
+Relative absolute error                 94.4134 %
+Root relative squared error            137.4143 %
+Total Number of Instances              358  
+
+n = 9000
+classifier: Decision Tree
+
+=== Error on test data ===
+
+Correctly Classified Instances         200               55.8659 %
+Incorrectly Classified Instances       158               44.1341 %
+Kappa statistic                          0.1164
+Mean absolute error                      0.4663
+Root mean squared error                  0.5892
+Relative absolute error                 93.2605 %
+Root relative squared error            117.8416 %
+Total Number of Instances              358 
+
+n = 9500
+classifier: SVM
+
+=== Error on test data ===
+
+Correctly Classified Instances         188               52.514  %
+Incorrectly Classified Instances       170               47.486  %
+Kappa statistic                          0.0489
+Mean absolute error                      0.4749
+Root mean squared error                  0.6891
+Relative absolute error                 94.9721 %
+Root relative squared error            137.8202 %
+Total Number of Instances              358   
+
+n = 10000
+classifier: Naive Bayes
+
+=== Error on test data ===
+
+Correctly Classified Instances         189               52.7933 %
+Incorrectly Classified Instances       169               47.2067 %
+Kappa statistic                          0.0532
+Mean absolute error                      0.4879
+Root mean squared error                  0.5459
+Relative absolute error                 97.5726 %
+Root relative squared error            109.1727 %
+Total Number of Instances              358   

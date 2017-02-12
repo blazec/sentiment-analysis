@@ -1,0 +1,12 @@
+classifier: Naive Bayes
+
+=== Error on test data ===
+
+Correctly Classified Instances         189               52.7933 %
+Incorrectly Classified Instances       169               47.2067 %
+Kappa statistic                          0.0532
+Mean absolute error                      0.4879
+Root mean squared error                  0.5459
+Relative absolute error                 97.5726 %
+Root relative squared error            109.1727 %
+Total Number of Instances              358 

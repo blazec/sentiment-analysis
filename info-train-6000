@@ -1,0 +1,34 @@
+
+
+=== Attribute Selection on all input data ===
+
+Search Method:
+	Attribute ranking.
+
+Attribute Evaluator (supervised, Class (nominal): 21 class):
+	Information Gain Ranking Filter
+
+Ranked attributes:
+ 0.022844    2 countsecondpersonpronouns
+ 0.011334    5 countpasttenseverbs
+ 0.00824    14 countadverbs
+ 0.005383    1 countfirstpersonpronouns
+ 0.004197   19 averagelengthtokens
+ 0.003684   11 countellipses
+ 0.003573   18 averagelengthsentences
+ 0.001865    9 countdashes
+ 0.00161     3 countthirdpersonpronouns
+ 0.000959   13 countpropernouns
+ 0.000777    7 countcommas
+ 0.000608    4 countcoordinatingconjunctions
+ 0           6 countfuturetenseverbs
+ 0          16 countslangacronyms
+ 0          20 numbersentences
+ 0          17 countuppercase
+ 0          10 countparentheses
+ 0           8 countcolonssemicolons
+ 0          15 countwhwords
+ 0          12 countcommonnouns
+
+Selected attributes: 2,5,14,1,19,11,18,9,3,13,7,4,6,16,20,17,10,8,15,12 : 20
+

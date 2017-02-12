@@ -1,0 +1,700 @@
+n = 500
+
+
+=== Attribute Selection on all input data ===
+
+Search Method:
+	Attribute ranking.
+
+Attribute Evaluator (supervised, Class (nominal): 21 class):
+	Information Gain Ranking Filter
+
+Ranked attributes:
+ 0.01443    2 countsecondpersonpronouns
+ 0.00821    5 countpasttenseverbs
+ 0          7 countcommas
+ 0         10 countparentheses
+ 0          8 countcolonssemicolons
+ 0          9 countdashes
+ 0          3 countthirdpersonpronouns
+ 0          1 countfirstpersonpronouns
+ 0          6 countfuturetenseverbs
+ 0          4 countcoordinatingconjunctions
+ 0         17 countuppercase
+ 0         16 countslangacronyms
+ 0         20 numbersentences
+ 0         18 averagelengthsentences
+ 0         19 averagelengthtokens
+ 0         12 countcommonnouns
+ 0         11 countellipses
+ 0         15 countwhwords
+ 0         13 countpropernouns
+ 0         14 countadverbs
+
+Selected attributes: 2,5,7,10,8,9,3,1,6,4,17,16,20,18,19,12,11,15,13,14 : 20
+
+n = 1000
+
+
+=== Attribute Selection on all input data ===
+
+Search Method:
+	Attribute ranking.
+
+Attribute Evaluator (supervised, Class (nominal): 21 class):
+	Information Gain Ranking Filter
+
+Ranked attributes:
+ 0.02009    5 countpasttenseverbs
+ 0.01975    2 countsecondpersonpronouns
+ 0.01182   14 countadverbs
+ 0.00894   18 averagelengthsentences
+ 0.00602    9 countdashes
+ 0.00384   11 countellipses
+ 0.0031    16 countslangacronyms
+ 0          7 countcommas
+ 0          4 countcoordinatingconjunctions
+ 0          3 countthirdpersonpronouns
+ 0          6 countfuturetenseverbs
+ 0          1 countfirstpersonpronouns
+ 0         17 countuppercase
+ 0         15 countwhwords
+ 0         20 numbersentences
+ 0         19 averagelengthtokens
+ 0         10 countparentheses
+ 0          8 countcolonssemicolons
+ 0         13 countpropernouns
+ 0         12 countcommonnouns
+
+Selected attributes: 5,2,14,18,9,11,16,7,4,3,6,1,17,15,20,19,10,8,13,12 : 20
+
+n = 1500
+
+
+=== Attribute Selection on all input data ===
+
+Search Method:
+	Attribute ranking.
+
+Attribute Evaluator (supervised, Class (nominal): 21 class):
+	Information Gain Ranking Filter
+
+Ranked attributes:
+ 0.02429    2 countsecondpersonpronouns
+ 0.01083    5 countpasttenseverbs
+ 0.00612   19 averagelengthtokens
+ 0.00601   14 countadverbs
+ 0.0054     9 countdashes
+ 0.00487   18 averagelengthsentences
+ 0.00475   11 countellipses
+ 0.00368    1 countfirstpersonpronouns
+ 0.00314    3 countthirdpersonpronouns
+ 0          7 countcommas
+ 0          4 countcoordinatingconjunctions
+ 0          6 countfuturetenseverbs
+ 0         16 countslangacronyms
+ 0         15 countwhwords
+ 0         20 numbersentences
+ 0         17 countuppercase
+ 0         10 countparentheses
+ 0          8 countcolonssemicolons
+ 0         13 countpropernouns
+ 0         12 countcommonnouns
+
+Selected attributes: 2,5,19,14,9,18,11,1,3,7,4,6,16,15,20,17,10,8,13,12 : 20
+
+n = 2000
+
+
+=== Attribute Selection on all input data ===
+
+Search Method:
+	Attribute ranking.
+
+Attribute Evaluator (supervised, Class (nominal): 21 class):
+	Information Gain Ranking Filter
+
+Ranked attributes:
+ 0.01878    2 countsecondpersonpronouns
+ 0.01029    5 countpasttenseverbs
+ 0.00561   19 averagelengthtokens
+ 0.00394   14 countadverbs
+ 0.00377   11 countellipses
+ 0.00366   18 averagelengthsentences
+ 0.0024     3 countthirdpersonpronouns
+ 0.00239    1 countfirstpersonpronouns
+ 0          8 countcolonssemicolons
+ 0          7 countcommas
+ 0          4 countcoordinatingconjunctions
+ 0          6 countfuturetenseverbs
+ 0         16 countslangacronyms
+ 0         15 countwhwords
+ 0         20 numbersentences
+ 0         17 countuppercase
+ 0         10 countparentheses
+ 0          9 countdashes
+ 0         13 countpropernouns
+ 0         12 countcommonnouns
+
+Selected attributes: 2,5,19,14,11,18,3,1,8,7,4,6,16,15,20,17,10,9,13,12 : 20
+
+n = 2500
+
+
+=== Attribute Selection on all input data ===
+
+Search Method:
+	Attribute ranking.
+
+Attribute Evaluator (supervised, Class (nominal): 21 class):
+	Information Gain Ranking Filter
+
+Ranked attributes:
+ 0.02198    2 countsecondpersonpronouns
+ 0.01021    5 countpasttenseverbs
+ 0.00588   14 countadverbs
+ 0.00434   18 averagelengthsentences
+ 0.00428   19 averagelengthtokens
+ 0.00391    1 countfirstpersonpronouns
+ 0.0027     3 countthirdpersonpronouns
+ 0.00258   11 countellipses
+ 0          7 countcommas
+ 0          8 countcolonssemicolons
+ 0          6 countfuturetenseverbs
+ 0          4 countcoordinatingconjunctions
+ 0         16 countslangacronyms
+ 0         15 countwhwords
+ 0         20 numbersentences
+ 0         17 countuppercase
+ 0         10 countparentheses
+ 0          9 countdashes
+ 0         13 countpropernouns
+ 0         12 countcommonnouns
+
+Selected attributes: 2,5,14,18,19,1,3,11,7,8,6,4,16,15,20,17,10,9,13,12 : 20
+
+n = 3000
+
+
+=== Attribute Selection on all input data ===
+
+Search Method:
+	Attribute ranking.
+
+Attribute Evaluator (supervised, Class (nominal): 21 class):
+	Information Gain Ranking Filter
+
+Ranked attributes:
+ 0.02365    2 countsecondpersonpronouns
+ 0.00989    5 countpasttenseverbs
+ 0.00604   14 countadverbs
+ 0.00494   19 averagelengthtokens
+ 0.00396    1 countfirstpersonpronouns
+ 0.00372   18 averagelengthsentences
+ 0.00303   11 countellipses
+ 0.00147    9 countdashes
+ 0          7 countcommas
+ 0          4 countcoordinatingconjunctions
+ 0          6 countfuturetenseverbs
+ 0          3 countthirdpersonpronouns
+ 0         16 countslangacronyms
+ 0         15 countwhwords
+ 0         20 numbersentences
+ 0         17 countuppercase
+ 0         10 countparentheses
+ 0          8 countcolonssemicolons
+ 0         13 countpropernouns
+ 0         12 countcommonnouns
+
+Selected attributes: 2,5,14,19,1,18,11,9,7,4,6,3,16,15,20,17,10,8,13,12 : 20
+
+n = 3500
+
+
+=== Attribute Selection on all input data ===
+
+Search Method:
+	Attribute ranking.
+
+Attribute Evaluator (supervised, Class (nominal): 21 class):
+	Information Gain Ranking Filter
+
+Ranked attributes:
+ 0.02035    2 countsecondpersonpronouns
+ 0.01093    5 countpasttenseverbs
+ 0.00673   19 averagelengthtokens
+ 0.00655   14 countadverbs
+ 0.00489    1 countfirstpersonpronouns
+ 0.00304   18 averagelengthsentences
+ 0.00247   11 countellipses
+ 0.00203    9 countdashes
+ 0.0017    13 countpropernouns
+ 0.00146    3 countthirdpersonpronouns
+ 0          7 countcommas
+ 0          4 countcoordinatingconjunctions
+ 0          6 countfuturetenseverbs
+ 0         16 countslangacronyms
+ 0         20 numbersentences
+ 0         17 countuppercase
+ 0         10 countparentheses
+ 0          8 countcolonssemicolons
+ 0         15 countwhwords
+ 0         12 countcommonnouns
+
+Selected attributes: 2,5,19,14,1,18,11,9,13,3,7,4,6,16,20,17,10,8,15,12 : 20
+
+n = 4000
+
+
+=== Attribute Selection on all input data ===
+
+Search Method:
+	Attribute ranking.
+
+Attribute Evaluator (supervised, Class (nominal): 21 class):
+	Information Gain Ranking Filter
+
+Ranked attributes:
+ 0.01939    2 countsecondpersonpronouns
+ 0.00743   14 countadverbs
+ 0.007      5 countpasttenseverbs
+ 0.00661   18 averagelengthsentences
+ 0.00338   11 countellipses
+ 0.00332   19 averagelengthtokens
+ 0.00282    1 countfirstpersonpronouns
+ 0.00253    9 countdashes
+ 0.00184   13 countpropernouns
+ 0.00161   15 countwhwords
+ 0.00107    4 countcoordinatingconjunctions
+ 0.00104    3 countthirdpersonpronouns
+ 0          6 countfuturetenseverbs
+ 0         16 countslangacronyms
+ 0         20 numbersentences
+ 0         17 countuppercase
+ 0          8 countcolonssemicolons
+ 0          7 countcommas
+ 0         12 countcommonnouns
+ 0         10 countparentheses
+
+Selected attributes: 2,14,5,18,11,19,1,9,13,15,4,3,6,16,20,17,8,7,12,10 : 20
+
+n = 4500
+
+
+=== Attribute Selection on all input data ===
+
+Search Method:
+	Attribute ranking.
+
+Attribute Evaluator (supervised, Class (nominal): 21 class):
+	Information Gain Ranking Filter
+
+Ranked attributes:
+ 0.020324    2 countsecondpersonpronouns
+ 0.010679    5 countpasttenseverbs
+ 0.008894   14 countadverbs
+ 0.004937    1 countfirstpersonpronouns
+ 0.004449   19 averagelengthtokens
+ 0.003909   18 averagelengthsentences
+ 0.003817   11 countellipses
+ 0.001628    9 countdashes
+ 0.001222    3 countthirdpersonpronouns
+ 0.001059   12 countcommonnouns
+ 0.000908    4 countcoordinatingconjunctions
+ 0.0007      8 countcolonssemicolons
+ 0           6 countfuturetenseverbs
+ 0          16 countslangacronyms
+ 0          20 numbersentences
+ 0          17 countuppercase
+ 0          10 countparentheses
+ 0           7 countcommas
+ 0          15 countwhwords
+ 0          13 countpropernouns
+
+Selected attributes: 2,5,14,1,19,18,11,9,3,12,4,8,6,16,20,17,10,7,15,13 : 20
+
+n = 5000
+
+
+=== Attribute Selection on all input data ===
+
+Search Method:
+	Attribute ranking.
+
+Attribute Evaluator (supervised, Class (nominal): 21 class):
+	Information Gain Ranking Filter
+
+Ranked attributes:
+ 0.021515    2 countsecondpersonpronouns
+ 0.010801    5 countpasttenseverbs
+ 0.008913   14 countadverbs
+ 0.005676   11 countellipses
+ 0.004487    1 countfirstpersonpronouns
+ 0.003905   19 averagelengthtokens
+ 0.003766   18 averagelengthsentences
+ 0.00182     9 countdashes
+ 0.000967    3 countthirdpersonpronouns
+ 0.000915   13 countpropernouns
+ 0           7 countcommas
+ 0           4 countcoordinatingconjunctions
+ 0           6 countfuturetenseverbs
+ 0          16 countslangacronyms
+ 0          20 numbersentences
+ 0          17 countuppercase
+ 0          10 countparentheses
+ 0           8 countcolonssemicolons
+ 0          15 countwhwords
+ 0          12 countcommonnouns
+
+Selected attributes: 2,5,14,11,1,19,18,9,3,13,7,4,6,16,20,17,10,8,15,12 : 20
+
+n = 5500
+
+
+=== Attribute Selection on all input data ===
+
+Search Method:
+	Attribute ranking.
+
+Attribute Evaluator (supervised, Class (nominal): 21 class):
+	Information Gain Ranking Filter
+
+Ranked attributes:
+ 0.02234    2 countsecondpersonpronouns
+ 0.00916    5 countpasttenseverbs
+ 0.00801   14 countadverbs
+ 0.00517   18 averagelengthsentences
+ 0.00484   19 averagelengthtokens
+ 0.0046     1 countfirstpersonpronouns
+ 0.0038    11 countellipses
+ 0.00154    9 countdashes
+ 0.00144    3 countthirdpersonpronouns
+ 0.00116   13 countpropernouns
+ 0          7 countcommas
+ 0          4 countcoordinatingconjunctions
+ 0          6 countfuturetenseverbs
+ 0         16 countslangacronyms
+ 0         20 numbersentences
+ 0         17 countuppercase
+ 0         10 countparentheses
+ 0          8 countcolonssemicolons
+ 0         15 countwhwords
+ 0         12 countcommonnouns
+
+Selected attributes: 2,5,14,18,19,1,11,9,3,13,7,4,6,16,20,17,10,8,15,12 : 20
+
+n = 6000
+
+
+=== Attribute Selection on all input data ===
+
+Search Method:
+	Attribute ranking.
+
+Attribute Evaluator (supervised, Class (nominal): 21 class):
+	Information Gain Ranking Filter
+
+Ranked attributes:
+ 0.022844    2 countsecondpersonpronouns
+ 0.011334    5 countpasttenseverbs
+ 0.00824    14 countadverbs
+ 0.005383    1 countfirstpersonpronouns
+ 0.004197   19 averagelengthtokens
+ 0.003684   11 countellipses
+ 0.003573   18 averagelengthsentences
+ 0.001865    9 countdashes
+ 0.00161     3 countthirdpersonpronouns
+ 0.000959   13 countpropernouns
+ 0.000777    7 countcommas
+ 0.000608    4 countcoordinatingconjunctions
+ 0           6 countfuturetenseverbs
+ 0          16 countslangacronyms
+ 0          20 numbersentences
+ 0          17 countuppercase
+ 0          10 countparentheses
+ 0           8 countcolonssemicolons
+ 0          15 countwhwords
+ 0          12 countcommonnouns
+
+Selected attributes: 2,5,14,1,19,11,18,9,3,13,7,4,6,16,20,17,10,8,15,12 : 20
+
+n = 6500
+
+
+=== Attribute Selection on all input data ===
+
+Search Method:
+	Attribute ranking.
+
+Attribute Evaluator (supervised, Class (nominal): 21 class):
+	Information Gain Ranking Filter
+
+Ranked attributes:
+ 0.022776    2 countsecondpersonpronouns
+ 0.010034    5 countpasttenseverbs
+ 0.007758   14 countadverbs
+ 0.005217    1 countfirstpersonpronouns
+ 0.003629   11 countellipses
+ 0.003436   18 averagelengthsentences
+ 0.003232   19 averagelengthtokens
+ 0.001558    9 countdashes
+ 0.001066    3 countthirdpersonpronouns
+ 0.000887   13 countpropernouns
+ 0.000521   10 countparentheses
+ 0          16 countslangacronyms
+ 0           4 countcoordinatingconjunctions
+ 0          20 numbersentences
+ 0          17 countuppercase
+ 0           8 countcolonssemicolons
+ 0          12 countcommonnouns
+ 0          15 countwhwords
+ 0           7 countcommas
+ 0           6 countfuturetenseverbs
+
+Selected attributes: 2,5,14,1,11,18,19,9,3,13,10,16,4,20,17,8,12,15,7,6 : 20
+
+n = 7000
+
+
+=== Attribute Selection on all input data ===
+
+Search Method:
+	Attribute ranking.
+
+Attribute Evaluator (supervised, Class (nominal): 21 class):
+	Information Gain Ranking Filter
+
+Ranked attributes:
+ 0.022934    2 countsecondpersonpronouns
+ 0.008952    5 countpasttenseverbs
+ 0.007708   14 countadverbs
+ 0.005381   18 averagelengthsentences
+ 0.005329   19 averagelengthtokens
+ 0.00489    11 countellipses
+ 0.004846    1 countfirstpersonpronouns
+ 0.001528    3 countthirdpersonpronouns
+ 0.001362    9 countdashes
+ 0.000832   13 countpropernouns
+ 0.00062     4 countcoordinatingconjunctions
+ 0           7 countcommas
+ 0           6 countfuturetenseverbs
+ 0          16 countslangacronyms
+ 0          20 numbersentences
+ 0          17 countuppercase
+ 0          10 countparentheses
+ 0           8 countcolonssemicolons
+ 0          15 countwhwords
+ 0          12 countcommonnouns
+
+Selected attributes: 2,5,14,18,19,11,1,3,9,13,4,7,6,16,20,17,10,8,15,12 : 20
+
+n = 7500
+
+
+=== Attribute Selection on all input data ===
+
+Search Method:
+	Attribute ranking.
+
+Attribute Evaluator (supervised, Class (nominal): 21 class):
+	Information Gain Ranking Filter
+
+Ranked attributes:
+ 0.021403    2 countsecondpersonpronouns
+ 0.011386    5 countpasttenseverbs
+ 0.008171   14 countadverbs
+ 0.006338    1 countfirstpersonpronouns
+ 0.005308   18 averagelengthsentences
+ 0.00354    11 countellipses
+ 0.003369   19 averagelengthtokens
+ 0.001295    3 countthirdpersonpronouns
+ 0.001208    9 countdashes
+ 0.000811   12 countcommonnouns
+ 0.000522   13 countpropernouns
+ 0           6 countfuturetenseverbs
+ 0           4 countcoordinatingconjunctions
+ 0          16 countslangacronyms
+ 0          20 numbersentences
+ 0          17 countuppercase
+ 0           8 countcolonssemicolons
+ 0           7 countcommas
+ 0          15 countwhwords
+ 0          10 countparentheses
+
+Selected attributes: 2,5,14,1,18,11,19,3,9,12,13,6,4,16,20,17,8,7,15,10 : 20
+
+n = 8000
+
+
+=== Attribute Selection on all input data ===
+
+Search Method:
+	Attribute ranking.
+
+Attribute Evaluator (supervised, Class (nominal): 21 class):
+	Information Gain Ranking Filter
+
+Ranked attributes:
+ 0.023267    2 countsecondpersonpronouns
+ 0.012045    5 countpasttenseverbs
+ 0.008626   14 countadverbs
+ 0.005115    1 countfirstpersonpronouns
+ 0.004801   19 averagelengthtokens
+ 0.004586   18 averagelengthsentences
+ 0.003456   11 countellipses
+ 0.001552    9 countdashes
+ 0.001387    3 countthirdpersonpronouns
+ 0.00087    12 countcommonnouns
+ 0.000636    7 countcommas
+ 0.000583   13 countpropernouns
+ 0           4 countcoordinatingconjunctions
+ 0           6 countfuturetenseverbs
+ 0          16 countslangacronyms
+ 0          20 numbersentences
+ 0          17 countuppercase
+ 0           8 countcolonssemicolons
+ 0          15 countwhwords
+ 0          10 countparentheses
+
+Selected attributes: 2,5,14,1,19,18,11,9,3,12,7,13,4,6,16,20,17,8,15,10 : 20
+
+n = 8500
+
+
+=== Attribute Selection on all input data ===
+
+Search Method:
+	Attribute ranking.
+
+Attribute Evaluator (supervised, Class (nominal): 21 class):
+	Information Gain Ranking Filter
+
+Ranked attributes:
+ 0.023321    2 countsecondpersonpronouns
+ 0.011396    5 countpasttenseverbs
+ 0.007445   14 countadverbs
+ 0.005422    1 countfirstpersonpronouns
+ 0.004911   18 averagelengthsentences
+ 0.003956   19 averagelengthtokens
+ 0.003544   11 countellipses
+ 0.001765    9 countdashes
+ 0.001302    3 countthirdpersonpronouns
+ 0.000734   13 countpropernouns
+ 0.000656   12 countcommonnouns
+ 0           6 countfuturetenseverbs
+ 0           4 countcoordinatingconjunctions
+ 0          16 countslangacronyms
+ 0          20 numbersentences
+ 0          17 countuppercase
+ 0           8 countcolonssemicolons
+ 0           7 countcommas
+ 0          15 countwhwords
+ 0          10 countparentheses
+
+Selected attributes: 2,5,14,1,18,19,11,9,3,13,12,6,4,16,20,17,8,7,15,10 : 20
+
+n = 9000
+
+
+=== Attribute Selection on all input data ===
+
+Search Method:
+	Attribute ranking.
+
+Attribute Evaluator (supervised, Class (nominal): 21 class):
+	Information Gain Ranking Filter
+
+Ranked attributes:
+ 0.022652    2 countsecondpersonpronouns
+ 0.010814    5 countpasttenseverbs
+ 0.008423   14 countadverbs
+ 0.005673   18 averagelengthsentences
+ 0.004524    1 countfirstpersonpronouns
+ 0.004438   19 averagelengthtokens
+ 0.004041   11 countellipses
+ 0.001671    9 countdashes
+ 0.001284    3 countthirdpersonpronouns
+ 0.000697   13 countpropernouns
+ 0.000612   12 countcommonnouns
+ 0.00053     4 countcoordinatingconjunctions
+ 0           6 countfuturetenseverbs
+ 0          16 countslangacronyms
+ 0          20 numbersentences
+ 0          17 countuppercase
+ 0           8 countcolonssemicolons
+ 0           7 countcommas
+ 0          15 countwhwords
+ 0          10 countparentheses
+
+Selected attributes: 2,5,14,18,1,19,11,9,3,13,12,4,6,16,20,17,8,7,15,10 : 20
+
+n = 9500
+
+
+=== Attribute Selection on all input data ===
+
+Search Method:
+	Attribute ranking.
+
+Attribute Evaluator (supervised, Class (nominal): 21 class):
+	Information Gain Ranking Filter
+
+Ranked attributes:
+ 0.022347    2 countsecondpersonpronouns
+ 0.011269    5 countpasttenseverbs
+ 0.007697   14 countadverbs
+ 0.005104    1 countfirstpersonpronouns
+ 0.004901   18 averagelengthsentences
+ 0.004169   19 averagelengthtokens
+ 0.004054   11 countellipses
+ 0.001789    9 countdashes
+ 0.001297    3 countthirdpersonpronouns
+ 0.000699   12 countcommonnouns
+ 0.000654   13 countpropernouns
+ 0.000422    7 countcommas
+ 0.000403    4 countcoordinatingconjunctions
+ 0.000398    8 countcolonssemicolons
+ 0          16 countslangacronyms
+ 0          20 numbersentences
+ 0          17 countuppercase
+ 0           6 countfuturetenseverbs
+ 0          15 countwhwords
+ 0          10 countparentheses
+
+Selected attributes: 2,5,14,1,18,19,11,9,3,12,13,7,4,8,16,20,17,6,15,10 : 20
+
+n = 10000
+
+
+=== Attribute Selection on all input data ===
+
+Search Method:
+	Attribute ranking.
+
+Attribute Evaluator (supervised, Class (nominal): 21 class):
+	Information Gain Ranking Filter
+
+Ranked attributes:
+ 0.022289    2 countsecondpersonpronouns
+ 0.010718    5 countpasttenseverbs
+ 0.008027   14 countadverbs
+ 0.005165   18 averagelengthsentences
+ 0.004929    1 countfirstpersonpronouns
+ 0.004187   19 averagelengthtokens
+ 0.003827   11 countellipses
+ 0.001576    9 countdashes
+ 0.001156    3 countthirdpersonpronouns
+ 0.000705   12 countcommonnouns
+ 0.000633   13 countpropernouns
+ 0.000386    4 countcoordinatingconjunctions
+ 0           6 countfuturetenseverbs
+ 0          16 countslangacronyms
+ 0          20 numbersentences
+ 0          17 countuppercase
+ 0           8 countcolonssemicolons
+ 0           7 countcommas
+ 0          15 countwhwords
+ 0          10 countparentheses
+
+Selected attributes: 2,5,14,18,1,19,11,9,3,12,13,4,6,16,20,17,8,7,15,10 : 20
+
