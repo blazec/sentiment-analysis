@@ -41,7 +41,7 @@ def get_data(f):
 if __name__ == '__main__':
 	for i in range(10):
 		filename_train = 'bucket-all-not-' + str(i+1) + '.arff'
-		filename_test = 'bucket-' + str(i) + '.arff'
+		filename_test = 'bucket-' + str(i+1) + '.arff'
 		filename_i = 'partition-' + str(i+1) + '.arff'
 		data_train = []
 
